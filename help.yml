@@ -1,0 +1,16 @@
+webscraper:
+  main:
+    scraper_name: "Will be used to name your generated notebook"
+    link_to_scrape: "LINK"
+    download_path: "Specify were you want your files downloaded. If empty all downloads will go in the default path"
+    run_mode: "Tick the box to run in headless mode (browser will run in the background)"
+    click_button: "Use this block to instruct the bot to click on  DOM element"
+    hit_enter_button: "Use this to hit ENTER on a page (similar to clicking)"
+    write_button: "Use this block to instruct the bot to write text in fields (e.g. passwords)"
+    wait_after_command: "Some websites take longer to respond. Set your bot to wait n seconds after doing something"
+    add_block: "Add this block of code to your generated code"
+    view_scraper: "Will show a graph depicting the webscraper steps"
+    generate: "Creates your webscraper bot notebook"
+    dom_element: "Inspect web page, find your element, copy either the CSS Selector or the XPATH and paste here"
+    find_by: "Either XPATH or CSS Selector - Make sure this options what you pass in the DOM element field"
+    description: "Will be used in process flowchart"
