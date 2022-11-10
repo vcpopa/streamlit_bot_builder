@@ -97,7 +97,7 @@ def main():
         nb['cells'] = [nbf.v4.new_code_cell(template)]
         nbf.write(nb, f'{scraper_name}.ipynb')
         with open(f'{scraper_name}.ipynb',"rb") as nb_file:
-            st.download_button("Download bot as Jupyter notebook",nb_file,mime='application/octet-stream')
+            st.download_button("Download bot as Jupyter notebook",nb_file,mime='application/json')
        
 
         if st.button("START NEW BOT"):
