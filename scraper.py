@@ -7,7 +7,7 @@ class Bot():
     def bot_template(self):
         if self.download_path is not None:
             download_dir_options="""
-chrome_options.add_experimental_option("download.default_directory","{}\") """.format(self.download_path)
+chrome_options.add_experimental_option("download.default_directory","{}\\\\") """.format(self.download_path)
         else:
             download_dir_options="\n"
 
