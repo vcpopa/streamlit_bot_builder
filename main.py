@@ -12,6 +12,7 @@ from  codegen import CodeGenerator
 from flowchart import FlowChart
 import SessionState
 import graphviz
+import nbformat as nbf
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def main():
@@ -91,16 +92,13 @@ def main():
                     dot.node(f"{i+1}",step)
                     dot.edge(f"{i}",f"{i+1}")
         st.graphviz_chart(dot)
-
-
-#         try:
-#             codegen=CodeGenerator(download_path=download_path,scraper_name=scraper_name,code_template=template)
-#             nb=codegen.make_notebook()
-#             st.download_button("Download bot notebook",data=nb,file_name=f"{scraper_name}.ipynb")
            
-#         except:
-#             st.markdown(traceback.format_exc())
-
+        nb = nbf.v4.new_notebook()
+        nb['cells'] = [nbf.v4.new_code_cell(template)]
+        nbf.write(nb, f'{scraper_name}.ipynb')
+        with open(f'{scraper_name}.ipynb',"rb") as nb_file:
+            st.download_button("Download bot as Jupyter notebook",nb_file,mime='application/octet-stream')
+       
 
         if st.button("START NEW BOT"):
             del ss
