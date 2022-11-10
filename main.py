@@ -40,9 +40,9 @@ def main():
     ss=SessionState.get(sscraper_name=_scraper_name,slink_to_scrape=_link_to_scrape,sdownload_path=_download_path,saction=_action,sfind_by=_find_by,sdom_element=_dom_element,swait_for=_wait_for,skeys_to_send=_keys_to_send,steps=steps)
     with st.sidebar.form("MAIN BOT CONFIG"):
         
-        scraper_name=st.sidebar.text_input("Scraper name",value='Webscraper',help=_help['webscraper']['main']['scraper_name'])
-        link_to_scrape=st.sidebar.text_input("Link to scrape",value='...',help=_help['webscraper']['main']['link_to_scrape'])
-        download_path=st.sidebar.text_input("Download path",value="path/to/folder",help=_help['webscraper']['main']['download_path'])
+        scraper_name=st.sidebar.text_input("Scraper name",value="",help=_help['webscraper']['main']['scraper_name'])
+        link_to_scrape=st.sidebar.text_input("Link to scrape",value='',help=_help['webscraper']['main']['link_to_scrape'])
+        download_path=st.sidebar.text_input("Download path",value="",help=_help['webscraper']['main']['download_path'])
         submit_bot_config=st.form_submit_button("Define BOT")
         if submit_bot_config:
             ss.sscraper_name.append(scraper_name)
@@ -54,9 +54,9 @@ def main():
         action=st.selectbox("Select an action type",['Click','Write text','Hit Enter'])
         find_by_box=st.selectbox("Choose DOM element type",['CSS SELECTOR',"XPATH"],help=_help['webscraper']['main']['find_by'])
         dom_element_box=st.text_input("Paste the CSS Selector/XPATH",help=_help['webscraper']['main']['dom_element'])
-        wait_for_box=st.text_input("Bot waits for ... seconds after executing command",value=0,help=_help['webscraper']['main']['wait_after_command'])
-        keys_to_send_box=st.text_input("Input text",value=None)
-        description=st.text_input("Write a a short description",value="Click",help=_help['webscraper']['main']['description'])
+        wait_for_box=st.text_input("Bot waits for ... seconds after executing command",value="",help=_help['webscraper']['main']['wait_after_command'])
+        keys_to_send_box=st.text_input("Input text",value="")
+        description=st.text_input("Write a a short description",value="",help=_help['webscraper']['main']['description'])
         action_submit_button=st.form_submit_button("Add action to bot")
 
         if action_submit_button:
