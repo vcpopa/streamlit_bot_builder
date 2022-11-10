@@ -38,7 +38,7 @@ def main():
     _keys_to_send=['']
     steps=['Access link']
     ss=SessionState.get(sscraper_name=_scraper_name,slink_to_scrape=_link_to_scrape,sdownload_path=_download_path,saction=_action,sfind_by=_find_by,sdom_element=_dom_element,swait_for=_wait_for,skeys_to_send=_keys_to_send,steps=steps)
-    with st.sidebar.form("MAIN BOT CONFIG"):
+    with st.sidebar.form("MAIN BOT CONFIG",clear_on_submit=True):
         
         scraper_name=st.sidebar.text_input("Scraper name",value="",help=_help['webscraper']['main']['scraper_name'])
         link_to_scrape=st.sidebar.text_input("Link to scrape",value='',help=_help['webscraper']['main']['link_to_scrape'])
