@@ -49,7 +49,7 @@ class SessionState():
         """
         for key, val in kwargs.items():
             setattr(self, key, val)
-        st.write(kwargs)
+    
 
 
 
