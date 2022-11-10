@@ -12,5 +12,5 @@ class CodeGenerator():
     def make_notebook(self):
         nb = nbf.v4.new_notebook()
         nb['cells'] = [nbf.v4.new_code_cell(self.code_template)]
-        download_path=r"{}".format(self.download_path) +"\\\\"+self.scraper_name
+        download_path=r"{}".format(self.download_path) +"\\"+self.scraper_name
         nbf.write(nb, f'{download_path)}-Scraper.ipynb')
