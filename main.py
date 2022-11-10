@@ -95,8 +95,10 @@ def main():
 
         try:
             codegen=CodeGenerator(download_path=download_path,scraper_name=scraper_name,code_template=template)
-            codegen.make_notebook()
-            st.markdown(f"{scraper_name} bot notebook created successfully @ {download_path}")
+            nb=codegen.make_notebook()
+            st.download_button("Download bot notebook",data=nb,file_name=f"{scraper_name}.ipynb")
+            
+#             st.markdown(f"{scraper_name} bot notebook created successfully @ {download_path}")
         except:
             st.markdown(traceback.format_exc())
 
