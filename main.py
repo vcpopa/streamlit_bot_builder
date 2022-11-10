@@ -93,13 +93,13 @@ def main():
         st.graphviz_chart(dot)
 
 
-        try:
-            codegen=CodeGenerator(download_path=download_path,scraper_name=scraper_name,code_template=template)
-            nb=codegen.make_notebook()
-            st.download_button("Download bot notebook",data=nb,file_name=f"{scraper_name}.ipynb")
+#         try:
+#             codegen=CodeGenerator(download_path=download_path,scraper_name=scraper_name,code_template=template)
+#             nb=codegen.make_notebook()
+#             st.download_button("Download bot notebook",data=nb,file_name=f"{scraper_name}.ipynb")
            
-        except:
-            st.markdown(traceback.format_exc())
+#         except:
+#             st.markdown(traceback.format_exc())
 
 
         if st.button("START NEW BOT"):
