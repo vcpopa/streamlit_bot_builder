@@ -29,7 +29,7 @@ chrome_options.add_argument('--user-data-dir=~/.config/google-chrome')
 {download_dir_options}
 driver=webdriver.Chrome("/usr/local/bin/chromedriver",options=chrome_options)
 driver.implicitly_wait(10)
-driver.get({self.link_to_scrape})
+driver.get('{self.link_to_scrape}')
 driver.maximize_window() 
 """
 
@@ -52,7 +52,7 @@ class Actions():
             if self.param_dict['find_by']=="CSS SELECTOR":
                 self.template=self.template +"\n"
                 self.template=self.template+f"""
-click_data=driver.find_element(By.CSS_SELECTOR,{self.dom_element})
+click_data=driver.find_element(By.CSS_SELECTOR,'{self.dom_element}')
 click_data.click() 
                 """
             if self.param_dict['find_by']=="XPATH":
@@ -71,13 +71,13 @@ click_data.click()
             if self.param_dict['find_by']=="CSS SELECTOR":
                 self.template=self.template +"\n"
                 self.template=f"""
-write_data=driver.find_element(By.CSS_SELECTOR,{self.dom_element})
+write_data=driver.find_element(By.CSS_SELECTOR,'{self.dom_element}')
 write_data.send_keys({self.keys_to_send})
             """
             if self.param_dict['find_by']=="XPATH":
                 self.template=self.template +"\n"
                 self.template=f"""
-write_data=driver.find_element(By.XPATH,{self.dom_element})
+write_data=driver.find_element(By.XPATH,'{self.dom_element}')
 write_data.send_keys({self.keys_to_send})
             """
             if self.wait_for is None:
@@ -97,13 +97,13 @@ write_data.send_keys({self.keys_to_send})
             if self.param_dict['find_by']=="CSS SELECTOR":
                 self.template=self.template +"/n"
                 self.template=f"""
-write_data=driver.find_element(By.CSS_SELECTOR,{self.dom_element})
+write_data=driver.find_element(By.CSS_SELECTOR,'{self.dom_element}')
 write_data.send_keys({"/n"}) 
                 """
             if self.param_dict['find_by']=="XPATH":
                 self.template=self.template +"\n"
                 self.template=f"""
-write_data=driver.find_element(By.XPATH,{self.dom_element})
+write_data=driver.find_element(By.XPATH,'{self.dom_element}')
 write_data.send_keys("\n")
                 """
             if self.wait_for is None:
