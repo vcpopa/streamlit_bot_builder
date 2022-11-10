@@ -27,7 +27,7 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--profile-directory=Default')
 chrome_options.add_argument('--user-data-dir=~/.config/google-chrome')
 {download_dir_options}
-driver=webdriver.Chrome("./chromedriver",options=chrome_options)
+driver=webdriver.Chrome("/usr/local/bin/chromedriver",options=chrome_options)
 driver.implicitly_wait(10)
 driver.get({self.link_to_scrape})
 driver.maximize_window() 
