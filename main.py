@@ -14,7 +14,7 @@ import SessionState
 import graphviz
 import nbformat as nbf
 from zipfile import ZipFile
-from streamlit import caching
+# from streamlit import caching
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -105,13 +105,13 @@ def main():
         with open(f"{scraper_name}.zip","rb") as nb_file:
             st.download_button("Download bot as Jupyter notebook",nb_file,mime='application/zip',file_name=f"{scraper_name}.zip")
             if st.download_button:
-                caching.clear_cache()
+#                 caching.clear_cache()
        
 
         if st.button("START NEW BOT"):
             
             del ss
-            caching.clear_cache()
+#             caching.clear_cache()
             main()
 
 if __name__=="__main__":
