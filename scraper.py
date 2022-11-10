@@ -6,8 +6,7 @@ class Bot():
 
     def bot_template(self):
         if self.download_path is not None:
-            download_dir_options="""
-{{"profile.default_content_settings.popups": 0,
+            download_dir_options="""{{"profile.default_content_settings.popups": 0,
                  "download.default_directory": "{}/",
                  "directory_upgrade": True}}
 """.format(self.download_path)
