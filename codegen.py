@@ -17,3 +17,5 @@ class CodeGenerator():
         fn=f"{self.scraper_name}.ipynb"
         with open(tmp.fn, 'w') as f:
             nbf.write(nb, f)# where `stuff` is, y'know... stuff to write (a string)
+            tmp_directory = os.path.dirname(f)
+        return tmp_directory
