@@ -7,9 +7,12 @@ class Bot():
     def bot_template(self):
         if self.download_path is not None:
             download_dir_options="""
-chrome_options.add_experimental_option("download.default_directory","{}\\\\") """.format(self.download_path)
+{"profile.default_content_settings.popups": 0,
+                 "download.default_directory": {},
+                 "directory_upgrade": True}
+""".format(self.download_path)
         else:
-            download_dir_options="\n"
+            download_dir_options=None
 
 
         self.template=f"""
@@ -26,7 +29,8 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--profile-directory=Default')
 chrome_options.add_argument('--user-data-dir=~/.config/google-chrome')
-{download_dir_options}
+prefs={download_dir_options}
+chrome_options.add_experimental_option("prefs",prefs)
 driver=webdriver.Chrome("/usr/local/bin/chromedriver",options=chrome_options)
 driver.implicitly_wait(10)
 driver.get('{self.link_to_scrape}')
