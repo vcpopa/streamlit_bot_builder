@@ -13,7 +13,7 @@ class CodeGenerator():
     def make_notebook(self):
         nb = nbf.v4.new_notebook()
         nb['cells'] = [nbf.v4.new_code_cell(self.code_template)]
-        tmp = tempfile.NamedTemporaryFile
+        tmp = tempfile.NamedTemporaryFile()
         fn=f"{self.scraper_name}.ipynb"
         with open(tmp.fn, 'w') as f:
             nbf.write(nb, f)# where `stuff` is, y'know... stuff to write (a string)
