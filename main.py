@@ -13,6 +13,7 @@ from flowchart import FlowChart
 import SessionState
 import graphviz
 import nbformat as nbf
+from zipfile import ZipFile
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def main():
@@ -96,8 +97,11 @@ def main():
         nb = nbf.v4.new_notebook()
         nb['cells'] = [nbf.v4.new_code_cell(template)]
         nbf.write(nb, f'{scraper_name}.ipynb')
-        with open(f'{scraper_name}.ipynb',"rb") as nb_file:
-            st.download_button("Download bot as Jupyter notebook",nb_file,mime='application/json')
+        zip_obj=ZipFile(f"{scraper_name}.zip","w")
+        zip_obj.write(f'{scraper_name}.ipynb')
+        zip_obj.close()
+        with open(f"{scraper_name}.zip",,"rb") as nb_file:
+            st.download_button("Download bot as Jupyter notebook",nb_file,mime='application/zip')
        
 
         if st.button("START NEW BOT"):
