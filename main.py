@@ -100,7 +100,7 @@ def main():
         zip_obj=ZipFile(f"{scraper_name}.zip","w")
         zip_obj.write(f'{scraper_name}.ipynb')
         zip_obj.close()
-        with open(f"{scraper_name}.zip",,"rb") as nb_file:
+        with open(f"{scraper_name}.zip","rb") as nb_file:
             st.download_button("Download bot as Jupyter notebook",nb_file,mime='application/zip')
        
 
